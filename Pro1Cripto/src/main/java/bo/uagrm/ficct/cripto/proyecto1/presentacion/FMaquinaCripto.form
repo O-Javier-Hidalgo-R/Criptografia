@@ -337,6 +337,7 @@
     </Container>
     <Component class="javax.swing.JCheckBox" name="jCheckBox1">
       <Properties>
+        <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Quitar mayusculas y espacios:"/>
       </Properties>
       <Events>

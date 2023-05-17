@@ -85,8 +85,10 @@ public class MaquinaCripto implements IProyecto1{
                 if(tamClave * i + j < mensajeClaro.length()){
                     mensajeEncriptado[tamClave * i + reordenamiento[j]] = 
                             mensajeClaro.charAt(tamClave * i + j);
+                }else{
+                    mensajeEncriptado[tamClave * i + reordenamiento[j]] = '@';
                 }
-            }
+            }   
         }
         return String.valueOf(mensajeEncriptado);
     }
@@ -98,19 +100,15 @@ public class MaquinaCripto implements IProyecto1{
         int tamClave = clave.length();
         int cantSubMensajes = 
                 Math.ceilDiv(mensajeEncriptado.length(), clave.length());
-        int[] reordenamineto = colocarOrdenes(clave);
+        int[] reordenamiento = colocarOrdenes(clave);
         char[] mensajeClaro = new char[cantSubMensajes * tamClave];
         
         for (int i = 0; i < cantSubMensajes; i++) {
             for (int j = 0; j < tamClave; j++) {
-                if(tamClave * i + reordenamineto[j] < 
-                        mensajeEncriptado.length())
-                {
-                    mensajeClaro[tamClave * i + j] = 
-                            mensajeEncriptado.charAt(tamClave * i + 
-                                    reordenamineto[j]);
+                if(tamClave * i + j < mensajeEncriptado.length()){
+                    mensajeClaro[tamClave * i + reordenamiento[j]] = mensajeEncriptado.charAt(tamClave * i + j);
                 }
-            }
+            }   
         }
         return String.valueOf(mensajeClaro);
     }

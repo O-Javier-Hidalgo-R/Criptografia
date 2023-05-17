@@ -172,6 +172,7 @@ public class FMaquinaCripto extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jTable1);
 
+        jCheckBox1.setSelected(true);
         jCheckBox1.setText("Quitar mayusculas y espacios:");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,6 +316,7 @@ public class FMaquinaCripto extends javax.swing.JFrame {
                                 mensaje, JOptionPane.showInputDialog(
                                                 this, "Clave:")));
             }
+            break;
             case "Transposicion de series": {
                 textMensaje.setText(
                         maquinaCripto.encriptadoTransposicionSeries(mensaje));
@@ -431,6 +433,7 @@ public class FMaquinaCripto extends javax.swing.JFrame {
                                 mensaje, JOptionPane.showInputDialog(
                                                 this, "Clave:")));
             }
+            break;
             case "Transposicion de series": {
                 textMensaje.setText(
                         maquinaCripto.desencriptadoTransposicionSeries(mensaje));
