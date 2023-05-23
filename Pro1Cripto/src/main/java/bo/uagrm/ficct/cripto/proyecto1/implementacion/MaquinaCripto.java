@@ -101,16 +101,16 @@ public class MaquinaCripto implements IProyecto1{
         int cantSubMensajes = 
                 Math.ceilDiv(mensajeEncriptado.length(), clave.length());
         int[] reordenamiento = colocarOrdenes(clave);
-        char[] mensajeClaro = new char[cantSubMensajes * tamClave];
+        String mensajeClaro = "";
         
         for (int i = 0; i < cantSubMensajes; i++) {
             for (int j = 0; j < tamClave; j++) {
                 if(tamClave * i + j < mensajeEncriptado.length()){
-                    mensajeClaro[tamClave * i + reordenamiento[j]] = mensajeEncriptado.charAt(tamClave * i + j);
+                    mensajeClaro += mensajeEncriptado.charAt(tamClave * i + reordenamiento[j]);
                 }
             }   
         }
-        return String.valueOf(mensajeClaro);
+        return mensajeClaro;
     }
 
     @Override
@@ -521,7 +521,9 @@ public class MaquinaCripto implements IProyecto1{
         clave = generarClaveVigenere(clave, mensaje.length());
         
         for (int i = 0; i < mensaje.length(); i++) {
-            mensajeEncriptado += (this.alfabeto.get(posicionCaracter(mensaje.charAt(i), this.alfabeto) + posicionCaracter(clave.charAt(i), this.alfabeto) % this.alfabeto.size()));
+            int x = posicionCaracter(mensaje.charAt(i), this.alfabeto);
+            int y = posicionCaracter(clave.charAt(i), this.alfabeto);
+            mensajeEncriptado += (this.alfabeto.get((x + y) % this.alfabeto.size()));
         }
         return mensajeEncriptado;
     }
@@ -533,7 +535,9 @@ public class MaquinaCripto implements IProyecto1{
         clave = generarClaveVigenere(clave, mensaje.length());
         
         for (int i = 0; i < mensaje.length(); i++) {
-            mensajeEncriptado += (this.alfabeto.get(posicionCaracter(mensaje.charAt(i), this.alfabeto) - posicionCaracter(clave.charAt(i), this.alfabeto) % this.alfabeto.size()));
+            int x = posicionCaracter(mensaje.charAt(i), this.alfabeto);
+            int y = posicionCaracter(clave.charAt(i), this.alfabeto);
+            mensajeEncriptado += (this.alfabeto.get((x - y + this.alfabeto.size()) % this.alfabeto.size()));
         }
         return mensajeEncriptado;
     }
@@ -747,7 +751,7 @@ public class MaquinaCripto implements IProyecto1{
 
     private String generarClaveVigenere(String clave, int tamaño) {
         String claveVigenere = clave;
-        while(tamaño < clave.length()){
+        while(claveVigenere.length() < tamaño){
             claveVigenere += clave;
         }
         return claveVigenere.substring(0, tamaño);
