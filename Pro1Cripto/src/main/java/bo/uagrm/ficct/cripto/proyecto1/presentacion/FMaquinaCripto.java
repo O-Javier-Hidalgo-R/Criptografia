@@ -351,7 +351,7 @@ public class FMaquinaCripto extends javax.swing.JFrame {
                                 ""));
             }
             break;
-            case "Sustitucion por decimacion afin": {
+            case "Sustitucion por decimacion Afin": {
                 textMensaje.setText(
                         maquinaCripto.encriptadoSustitucionDesplazamientoGenerico(mensaje, 
                                 Integer.parseInt(
@@ -375,7 +375,7 @@ public class FMaquinaCripto extends javax.swing.JFrame {
             }
             break;
             case "Sustitucion de orden mayor": {
-                boolean b = Boolean.parseBoolean(JOptionPane.showInputDialog(
+                boolean b = Boolean.parseBoolean(JOptionPane.showInputDialog(this,
                         "Desea usar las filas como guia para la clave "
                                 + "correcta? (True/False)"));
                 textMensaje.setText(maquinaCripto.
@@ -468,7 +468,7 @@ public class FMaquinaCripto extends javax.swing.JFrame {
                                                 this, "decimacion:")),""));
             }
             break;
-            case "Sustitucion por decimacion afin": {
+            case "Sustitucion por decimacion Afin": {
                 textMensaje.setText(maquinaCripto.desencriptadoSustitucionDesplazamientoGenerico(mensaje, 
                                 Integer.parseInt(
                                         JOptionPane.showInputDialog(
@@ -491,7 +491,7 @@ public class FMaquinaCripto extends javax.swing.JFrame {
             }
             break;
             case "Sustitucion de orden mayor": {
-                boolean b = Boolean.parseBoolean(JOptionPane.showInputDialog(
+                boolean b = Boolean.parseBoolean(JOptionPane.showInputDialog(this,
                         "Desea usar las filas como guia para la clave "
                                 + "correcta? (True/False)"));
                 textMensaje.setText(maquinaCripto.
